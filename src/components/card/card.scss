@@ -1,0 +1,22 @@
+@import "../../params.scss";
+
+.card-container {
+  margin: 0.5rem;
+  padding: 3px;
+  filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+}
+
+.card-container-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 2px;
+  min-width: 30vh;
+  width: 50vh;
+  min-height: 20vh;
+  background-color: $mainOrangeDay;
+  transform-style: preserve-3d;
+  transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+}
