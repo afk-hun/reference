@@ -53,7 +53,7 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
             onMouseLeave={onMouseLeaveHandler}
             >
             <div ref={containerRef} className="card-container-front">
-              {props.name}
+              {!props.children && props.name}
               {props.children}
             </div>
           </div>)

@@ -15,6 +15,7 @@ const Cards = (props: CardsProps) => {
                             key={item.name} 
                             name={item.name} 
                             path={item.path}>
+                                {item.element}
                         </Card>;
             })}
         </div>
