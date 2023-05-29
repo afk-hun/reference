@@ -1,33 +1,31 @@
+import { RouteObject, RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.scss";
-import Card from "./components/card/Card";
+import RootPage from "./pages/RootPage";
+import LandingPage from "./pages/LandingPage";
+import { CARDS } from "./utils/consts";
 
-type cardItem = {
-  name: string;
-};
+// TODO: layz load needed for pages excep cards without page
 
-const CARDS: cardItem[] = [
-  { name: "Photo" },
-  { name: "Weather" },
-  { name: "Rick and Morty" },
-  { name: "Crypto" },
-  { name: "Domain Search" },
-  { name: "Chuck Norris" },
-  { name: "Pokemon" },
-  { name: "NASA" },
-  { name: "Citibikes" },
-  { name: "Google translate" },
-  { name: "Cocktail recipes" },
-  { name: "Resume" },
-];
+
+const routes: RouteObject[] = [
+  { path: '/', element: <LandingPage /> },
+]
+
+CARDS.map( (item) => { return routes.push({ path: item.path, element: item.element }) } )
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootPage />,
+    //errorElement: todo 
+    children: routes,
+  }
+])
 
 function App() {
   return (
-    <div className="App">
-      {/* Hej trevligt att träffas!  */}
-
-      {CARDS.map((item) => {
-        return <Card key={item.name} name={item.name}></Card>;
-      })}
+    <div>
+      <RouterProvider router={router} />
     </div>
   );
 }

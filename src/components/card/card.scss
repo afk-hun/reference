@@ -10,13 +10,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  border-radius: 8px;
+  
   padding: 2px;
   min-width: 30vh;
-  width: 50vh;
   min-height: 20vh;
-  background-color: $mainOrangeDay;
+  width: 50vh;
+  
+  background: linear-gradient(45deg, $mainYellowDay, $mainOrangeDay);
+  border-radius: 8px;
+
   transform-style: preserve-3d;
   transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
 }
