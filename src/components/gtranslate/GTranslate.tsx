@@ -20,48 +20,53 @@ const GTranslate = () => {
   const [targetText, setTargetText] = useState<string>("Translation");
 
   const fetchLanguages = () => {
-    axios
-      .get(
-        `https://google-translate1.p.rapidapi.com/language/translate/v2/languages`,
-        {
-          headers: {
-            "X-RapidAPI-Key":
-              "686ea49de5msh110a5654fb41f87p166df2jsn2b45df0977ec",
-            "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-          },
+    const options = {
+        method: 'GET',
+        url: 'https://microsoft-translator-text.p.rapidapi.com/languages',
+        params: {
+          'api-version': '3.0'
+        },
+        headers: {
+          'X-RapidAPI-Key': '686ea49de5msh110a5654fb41f87p166df2jsn2b45df0977ec',
+          'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
         }
-      )
-      .then((res) => {
-        let langs: Language[] = [];
-        res.data.data.languages.map((item: { language: string }) => {
-          return langs.push({
-            langCode: item.language,
-            langName: getLangNameFromCode(item.language)?.name ?? item.language,
-          });
-        });
-        setLanguages(langs);
-      });
+      };
+      
+      try {
+          const response = axios.request(options);
+          console.log(response.then((item: any) => {
+            console.log(item)
+          }));
+      } catch (error) {
+          //console.error(error);
+      }
   };
 
   const fetchTranslatedText = (text: string) => {
-    const encodedParams = new URLSearchParams();
-    encodedParams.set("q", text);
-    encodedParams.set("target", targetLang);
-    encodedParams.set("source", sourceLang);
-
     const options = {
-      method: "POST",
-      url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "686ea49de5msh110a5654fb41f87p166df2jsn2b45df0977ec",
-        "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-      },
-      data: encodedParams,
+        method: 'POST',
+        url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+        params: {
+          'to[0]': targetLang,
+          'api-version': '3.0',
+          from: sourceLang,
+          profanityAction: 'NoAction',
+          textType: 'plain'
+        },
+        headers: {
+          'content-type': 'application/json',
+          'X-RapidAPI-Key': '686ea49de5msh110a5654fb41f87p166df2jsn2b45df0977ec',
+          'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com'
+        },
+        data: [
+          {
+            Text: text
+          }
+        ]
     };
     axios(options).then((res) => {
       setTargetText(res.data.data.translations[0].translatedText);
-    });
+    }); 
   };
 
   useEffect(() => {

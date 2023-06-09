@@ -1,0 +1,96 @@
+.cn_main_container {
+    background-color: white;
+    height: fit-content;
+    .cn_container {
+        padding: 1rem;
+        position: relative;
+        text-align: center;
+        .text {
+            padding: 0;
+            animation: fade_text 500ms ease-in;
+        }
+    
+        .text.active {
+            animation: slide_text 1500ms ease-out 780ms;
+        }
+    
+        .norris.active {
+            position: fixed;
+            bottom: 1rem;
+            left: 0rem;
+            background-image: url('../../../../public/imgs/chuck.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 8rem;
+            height: 10rem;
+            opacity: 0;
+            animation: kick 1500ms;
+        }
+    
+        .kick {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem
+        }
+    }
+}
+
+@keyframes kick {
+    0% {
+        opacity: 0;
+        bottom: -5rem;
+        left: -10rem;
+        transform: scale(1);
+        transform: rotate(-50deg);
+    }
+    20% {
+        transform: scale(1.6);
+    }
+    30% {
+        opacity: 1;
+        bottom: 2rem;
+        left: 2rem;
+    }
+    45% {
+        transform: rotate(0);
+        //transform: scale(1.2);
+    }
+    50% {
+        opacity: 1;
+        bottom: 0rem;
+        left: 4rem;
+        // transform: scale(1);
+        transform: rotate(10deg);
+    }
+    80%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        bottom: 0rem;
+        left: 4rem;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes slide_text {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(80rem);
+    }
+}
+@keyframes fade_text {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}

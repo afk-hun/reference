@@ -11,12 +11,13 @@ const Cards = (props: CardsProps) => {
     return (
         <div className="cards-container">
             {props.cards.map((item) => {
-                return <Card 
-                            key={item.name} 
-                            name={item.name} 
-                            path={item.path}>
-                                {item.element}
-                        </Card>;
+                return (<>{item.element}</> ) 
+                // <Card 
+                //             key={item.name} 
+                //             name={item.name} 
+                //             path={item.path}>
+                //                 {item.element}
+                //         </Card>;
             })}
         </div>
     )

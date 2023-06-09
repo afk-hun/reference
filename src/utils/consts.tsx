@@ -1,5 +1,4 @@
-import GTranslate from "../components/gtranslate/GTranslate";
-import ChuckNorrisPage from "../pages/ChuckNorrisPage";
+import ChuckNorris from "../components/cards/chuckNorris/ChuckNorris";
 import CitibikesPage from "../pages/CitibikesPage";
 import CocktailRecipesPage from "../pages/CocktailRecipesPage";
 import CryptoPage from "../pages/CryptoPage";
@@ -17,11 +16,11 @@ export const CARDS: cardItem[] = [
     { name: "Rick and Morty", path:'/rick-n-morty', page: <RickAndMortyPage />  },
     { name: "Crypto", path: '/crypto', page: <CryptoPage /> },
     { name: "Domain Search", path: '/domain-search', page: <DomainSearchPage /> },
-    { name: "Chuck Norris", path: '/chuck', page: <ChuckNorrisPage /> },
+    //{ name: "Chuck Norris", path: '/chuck', page: <ChuckNorrisPage /> },
     { name: "Pokemon", path: '/pokemon', page: <PokemonPage /> },
     { name: "NASA", path: '/nasa', page: <NASAPage /> },
     { name: "Citibikes", path: '/citibikes', page: <CitibikesPage /> },
-    { name: "Google translate", path: '/', element: <GTranslate /> },
+    { name: "Google translate", path: '/', element: <ChuckNorris /> },
     { name: "Cocktail recipes", path: '/cocktail-recipes', page: <CocktailRecipesPage /> },
     { name: "Resume", path: '/resume', page: <ResumePage /> },
   ];
