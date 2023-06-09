@@ -11,7 +11,7 @@ const routes: RouteObject[] = [
   { path: '/', element: <LandingPage /> },
 ]
 
-CARDS.map( (item) => { return routes.push({ path: item.path, element: item.element }) } )
+CARDS.map( (item) => { return routes.push({ path: item.path, element: item.page }) } )
 
 const router = createBrowserRouter([
   {

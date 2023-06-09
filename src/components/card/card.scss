@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   
-  padding: 2px;
+  //padding: 2px;
   min-width: 30vh;
   min-height: 20vh;
   width: 50vh;
@@ -21,4 +21,5 @@
 
   transform-style: preserve-3d;
   transform: perspective(5000px) rotateY(var(--rotateX)) rotateX(var(--rotateY));
+  overflow: hidden;
 }
