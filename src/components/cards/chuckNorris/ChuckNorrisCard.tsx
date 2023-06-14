@@ -1,10 +1,14 @@
 import axios from "axios";
-import { DetailedHTMLProps, HTMLAttributes, MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 
 import './chuck-norris.scss';
-import { Card } from "@mui/material";
+import Card from "../../card/Card";
 
-const ChuckNorris = () => {
+interface ChuckNorrisParams {
+    path: string;
+}
+
+const ChuckNorrisCard = (props: ChuckNorrisParams) => {
     const [joke, setJoke] = useState<string>('');
     const kickButtonRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLParagraphElement>(null);
@@ -26,7 +30,7 @@ const ChuckNorris = () => {
 
     useEffect(() => {
         fetchJoke();
-        console.log('useEffect');
+        //console.log('useEffect');
     }, [])
 
     function kickHandler(event: MouseEvent): void {
@@ -41,7 +45,8 @@ const ChuckNorris = () => {
     }
 
     return (
-        <Card className="cn_main_container">
+        <Card name={""} path={props.path} >
+            <div className="container"></div>
             <div className="cn_container">
                 {/* {joke === '' && 'Please wait...'} */}
                 {joke !== '' && <p className="text" ref={textRef}>{joke}</p>}
@@ -55,4 +60,4 @@ const ChuckNorris = () => {
     )
 }
 
-export default ChuckNorris;
+export default ChuckNorrisCard;
