@@ -1,0 +1,37 @@
+.gtranslate-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: inherit;
+  min-height: inherit;
+  background: white;
+
+  .gtranslate-container-header {
+    margin: 0.5rem;
+    height: 95%;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .gtranslate-container-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    .gtranslate-source {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+    }
+
+    .gtranslate-target {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 export type cardItem = {
     name: string;
-    element?: JSX.Element;
+    page?: JSX.Element;
     path: string;
-  
+    element?: JSX.Element;
   };
