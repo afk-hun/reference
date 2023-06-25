@@ -3,6 +3,8 @@ import "./App.scss";
 import RootPage from "./pages/RootPage";
 import LandingPage from "./pages/LandingPage";
 import { CARDS } from "./utils/consts";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
 // TODO: layz load needed for pages excep cards without page
 
@@ -24,9 +26,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </div>
+    </Provider>
   );
 }
 
