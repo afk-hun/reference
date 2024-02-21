@@ -1,4 +1,4 @@
-import { RouterProvider } from "react-router";
+import { Navigate, RouterProvider } from "react-router";
 import Navbar from "../components/rick-and-morty/Navbar";
 import { createBrowserRouter } from "react-router-dom";
 import Characters from "../components/rick-and-morty/Characters/Characters";
@@ -13,9 +13,13 @@ const Container = styled.div`
 export const routerConfig = [
   {
     path: "/",
-    element: <Navbar />,
+    element: (
+      <>
+        <Navbar /> <Navigate to={"/characters"} />{" "}
+      </>
+    ),
     children: [
-      { path: "/characters/", element: <Characters /> },
+      { path: "/characters", element: <Characters />, id: "index" },
       { path: "/locations", element: <Locations /> },
       { path: "/episodes", element: <Episodes /> },
     ],

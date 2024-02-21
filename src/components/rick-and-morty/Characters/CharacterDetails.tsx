@@ -5,30 +5,44 @@ import { useEffect, useState } from "react";
 import { getDatasByLinks, getDataByLink } from "../../../api/rickAndMortyCalls";
 import { useDefaultIfUnknown } from "../../../utils/utilityFunctions";
 import { CharacterType, EpisodeType } from "../Common/types";
+import { LeftText } from "../Common/CardElements";
 
 const DetailsContainer = styled.div`
   background-color: #fff4bd;
   position: relative;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
-  max-height: 500px;
-  width: 100%;
   color: #887bb0;
-  margin: auto;
   border-radius: 4px;
+  margin: 0.5rem;
 `;
 
-const Name = styled.h1``;
+const ScrollableDiv = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
+
+const Name = styled.h1`
+  @media (min-width: 667px) and (min-height: 375px) {
+    margin: 0.5rem 0 0.5rem 0;
+  }
+
+  @media (min-width: 667px) {
+    margin: 1rem 0 1rem 0;
+  }
+`;
 
 const ExtractsContainer = styled.div`
   display: flex;
+  flex-grow: 1;
 `;
 
 const ExtractsTitle = styled.p`
   margin: 0;
-  width: 8rem;
+  max-width: 8rem;
+  min-width: 4.5rem;
   margin-bottom: 0.5rem;
 `;
 
@@ -39,7 +53,7 @@ const Extracts = styled.p`
 
 const EpisodeContainer = styled.div`
   display: flex;
-  height: 3rem;
+  //height: 3rem;
   background-color: #887bb0;
   color: #fff4bd;
   padding: 0.5rem;
@@ -122,7 +136,6 @@ const EpisodeList = styled.div`
   width: 100%;
   max-height: 200px;
   background-color: #fff4bd;
-
   gap: 0.2rem 0;
 `;
 
@@ -130,8 +143,10 @@ const Episode = (props: EpisodeType) => {
   const { name, air_date, episode } = props;
   return (
     <EpisodeContainer>
-      <EpisodeName>{name}</EpisodeName>
-      <EpisodeOnAirDate>{air_date}</EpisodeOnAirDate>
+      <LeftText>
+        <EpisodeName>{name}</EpisodeName>
+        <EpisodeOnAirDate>{air_date}</EpisodeOnAirDate>
+      </LeftText>
       <EpisodeNumber>{episode}</EpisodeNumber>
     </EpisodeContainer>
   );
@@ -147,13 +162,18 @@ const CharacterImage = styled.img<CharacterImageProps>`
   top: 0;
   right: 0;
   border-radius: 0 0 0 50%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   filter: ${(props) => {
     if (props.$isDead) {
       return "grayscale(100%);";
     }
   }};
+
+  @media (min-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 type CharacterDetailsProps = {
@@ -179,48 +199,49 @@ export default function CharacterDetails(props: CharacterDetailsProps) {
 
   return (
     <DetailsContainer>
-      <Name>{name}</Name>
-      <ExtractsContainer>
-        <ExtractsTitle>Status:</ExtractsTitle>
-        <Extracts>{status}</Extracts>
-      </ExtractsContainer>
-      <ExtractsContainer>
-        <ExtractsTitle>Species:</ExtractsTitle>
-        <Extracts>{useDefaultIfUnknown(species, "Uncategorised")}</Extracts>
-      </ExtractsContainer>
-      <ExtractsContainer>
-        <ExtractsTitle>Gender:</ExtractsTitle>
-        <Extracts>{useDefaultIfUnknown(gender, "Uncategorised")}</Extracts>
-      </ExtractsContainer>
-      <ExtractsContainer>
-        <ExtractsTitle>Origin:</ExtractsTitle>
-        <Extracts>{useDefaultIfUnknown(origin.name, "-")}</Extracts>
-      </ExtractsContainer>
-      <ExtractsContainer>
-        <ExtractsTitle>Location:</ExtractsTitle>
-        <Extracts>{useDefaultIfUnknown(location.name, "-")}</Extracts>
-      </ExtractsContainer>
-      {/* it will be a list */}
+      <ScrollableDiv>
+        <Name>{name}</Name>
+        <ExtractsContainer>
+          <ExtractsTitle>Status:</ExtractsTitle>
+          <Extracts>{status}</Extracts>
+        </ExtractsContainer>
+        <ExtractsContainer>
+          <ExtractsTitle>Species:</ExtractsTitle>
+          <Extracts>{useDefaultIfUnknown(species, "Uncategorised")}</Extracts>
+        </ExtractsContainer>
+        <ExtractsContainer>
+          <ExtractsTitle>Gender:</ExtractsTitle>
+          <Extracts>{useDefaultIfUnknown(gender, "Uncategorised")}</Extracts>
+        </ExtractsContainer>
+        <ExtractsContainer>
+          <ExtractsTitle>Origin:</ExtractsTitle>
+          <Extracts>{useDefaultIfUnknown(origin.name, "-")}</Extracts>
+        </ExtractsContainer>
+        <ExtractsContainer>
+          <ExtractsTitle>Location:</ExtractsTitle>
+          <Extracts>{useDefaultIfUnknown(location.name, "-")}</Extracts>
+        </ExtractsContainer>
 
-      <ExtractsContainer>
-        <Name>Episode{episodes.length > 1 ? "s" : ""}</Name>
-      </ExtractsContainer>
-      <EpisodeTable>
-        <TableHeaderContainer>
-          <TableHeaderTitle>Title</TableHeaderTitle>
-          <TableHeaderOnAir>OnAir</TableHeaderOnAir>
-          <TableHeaderNumber>#</TableHeaderNumber>
-        </TableHeaderContainer>
-        <EpisodeList>
-          {episodes &&
-            episodes.map((episode) => {
-              return <Episode key={episode.id} {...episode} />;
-            })}
-        </EpisodeList>
-      </EpisodeTable>
+        <ExtractsContainer>
+          <Name>Episode{episodes.length > 1 ? "s" : ""}</Name>
+        </ExtractsContainer>
+        <EpisodeTable>
+          <TableHeaderContainer>
+            <TableHeaderTitle>Title</TableHeaderTitle>
+            <TableHeaderOnAir>OnAir</TableHeaderOnAir>
+            <TableHeaderNumber>#</TableHeaderNumber>
+          </TableHeaderContainer>
+          <EpisodeList>
+            {episodes &&
+              episodes.map((episode) => {
+                return <Episode key={episode.id} {...episode} />;
+              })}
+          </EpisodeList>
+        </EpisodeTable>
 
-      <CharacterImage $path={image} />
-      <Close onClick={props.onClick}>X</Close>
+        <CharacterImage $path={image} />
+        <Close onClick={props.onClick}>X</Close>
+      </ScrollableDiv>
     </DetailsContainer>
   );
 }
