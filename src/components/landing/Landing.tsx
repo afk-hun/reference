@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./landing.scss";
+import ChuckNorris from "../chuckNorris/ChuckNorris";
 
 export default function Landing() {
   return (
@@ -18,9 +19,7 @@ export default function Landing() {
         </Link>
       </section>
       <section className="sub-container">
-        <Link className="link" to={""}>
-          Chuck Norris
-        </Link>
+        <ChuckNorris />
       </section>
       <section className="sub-container">
         <Link className="link" to={""}>
