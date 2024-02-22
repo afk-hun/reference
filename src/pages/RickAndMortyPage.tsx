@@ -1,3 +1,4 @@
+
 import Navbar from "../components/rick-and-morty/Navbar";
 import styled from "styled-components";
 

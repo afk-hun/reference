@@ -4,19 +4,19 @@ import skeletonImg from "../../../asset/skeleton.jpeg";
 export const Modal = styled.div`
   display: flex;
   position: fixed;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background-color: #85d2d087;
-  width: 100wh;
 `;
 
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
+  padding-bottom: 1rem;
 `;
 
 export const Navigation = styled.div`
