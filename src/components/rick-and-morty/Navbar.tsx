@@ -38,9 +38,9 @@ export default function Navbar() {
   return (
     <Section>
       <NavDiv>
-        <NavLink to="characters">Characters</NavLink>
-        <NavLink to="locations">Locations</NavLink>
-        <NavLink to="episodes">Episodes</NavLink>
+        <NavLink to="/rick-and-morty/characters">Characters</NavLink>
+        <NavLink to="/rick-and-morty/locations">Locations</NavLink>
+        <NavLink to="/rick-and-morty/episodes">Episodes</NavLink>
       </NavDiv>
       <div>
         <Outlet />

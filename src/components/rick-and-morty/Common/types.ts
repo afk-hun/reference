@@ -35,3 +35,5 @@ export type LocationType = {
   url: string;
   created: string;
 };
+
+export const routerConfig = [{}]; // router config bring forward topper lever it needs for testing remove it asap
