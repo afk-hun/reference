@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import RickAndMortyPage, { routerConfig } from "../RickAndMortyPage";
+import RickAndMortyPage from "../RickAndMortyPage";
 import { RouterProvider, createMemoryRouter } from "react-router";
 import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
@@ -7,6 +7,7 @@ import userEvent from "@testing-library/user-event";
 import { mockCharacters } from "./mock";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
+import { routerConfig } from "../../components/rick-and-morty/Common/types";
 
 type Page = [page: string];
 type PageWithId = [page: string, testId: string];
