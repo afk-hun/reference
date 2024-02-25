@@ -1,5 +1,6 @@
 import axios from "axios";
 import { MouseEvent, useEffect, useRef, useState } from "react";
+import GitHubLink from "../github/GitHubLink";
 
 import "./chuck-norris.scss";
 
@@ -27,7 +28,6 @@ const ChuckNorris = () => {
 
   useEffect(() => {
     fetchJoke();
-    console.log("useEffect");
   }, []);
 
   function kickHandler(event: MouseEvent): void {
@@ -51,6 +51,12 @@ const ChuckNorris = () => {
           </p>
         )}
       </div>
+      <GitHubLink
+        mode="light"
+        link={
+          "https://github.com/afk-hun/reference/tree/develop/src/components/chuckNorris"
+        }
+      />
       <div className="norris" ref={kickButtonRef} />
       <div className="kick" onClick={kickHandler}>
         Kick
