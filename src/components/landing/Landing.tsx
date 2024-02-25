@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./landing.scss";
 import ChuckNorris from "../chuckNorris/ChuckNorris";
+import GitHubLink from "../github/GitHubLink";
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="container">
       <section className="sub-container">
-        <Link className="link rm" to={"/rick-and-morty/characters"}>
+        <div
+          className="link rm"
+          onClick={() => {
+            return navigate("/rick-and-morty/characters");
+          }}
+        >
           <div className="rm-container">
             <h1>Rick and Morty</h1>
             {/* <h3>A couple of useful information about this serie.</h3> */}
@@ -15,16 +22,20 @@ export default function Landing() {
               anxious grandson are further complicated by their
               inter-dimensional misadventures.
             </h3>
+            <GitHubLink
+              mode="light"
+              link={
+                "https://github.com/afk-hun/reference/tree/develop/src/components/rick-and-morty"
+              }
+            />
           </div>
-        </Link>
+        </div>
       </section>
       <section className="sub-container">
         <ChuckNorris />
       </section>
       <section className="sub-container">
-        <Link className="link" to={""}>
-          Resume
-        </Link>
+        <div className="link">Resume</div>
       </section>
     </div>
   );
