@@ -1,0 +1,260 @@
+:root {
+  --darkBlue: #122c34;
+  --lightBlue: #87c4ff;
+  --titleFontSize: 2rem;
+  --subtitleFontSize: 1.1rem;
+  --subTextFontSize: 1.2rem;
+  --descriptionFontSize: 1.5rem;
+  --nameFontSize: 2.2rem;
+  --roleFontSize: 1.4rem;
+  --nameFontSizeBig: 2.5rem;
+  --roleFontSizeBig: 1.7rem;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-top: 1rem;
+
+  .name-container {
+    display: flex;
+    gap: 0.5rem;
+
+    .text {
+      font-size: var(--nameFontSize);
+      font-weight: 300;
+      margin: 0;
+      color: var(--darkBlue);
+      @media (min-width: 768px) {
+        font-size: var(--nameFontSizeBig);
+      }
+    }
+    .text.first {
+      font-weight: 600;
+    }
+  }
+  .role {
+    font-size: var(--roleFontSize);
+    font-weight: 200;
+    margin: 0;
+    color: var(--darkBlue);
+
+    @media (min-width: 768px) {
+      font-size: var(--roleFontSizeBig);
+    }
+  }
+}
+
+.main-title {
+  margin: 0;
+  font-size: var(--titleFontSize);
+  font-weight: 600;
+  color: var(--darkBlue);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem;
+}
+
+.main-container.border {
+  border-top: 2px solid var(--darkBlue);
+  padding-top: 1rem;
+}
+
+.main-container.border.light {
+  border-top: 2px solid #fff;
+  padding-top: 1rem;
+}
+
+.main-description {
+  color: var(--darkBlue);
+  text-align: justify;
+  font-size: var(--subTextFontSize);
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.we {
+  margin: 0;
+  font-size: var(--subTextFontSize);
+  font-weight: 600;
+}
+
+.we.subtitle {
+  font-weight: 200;
+  font-size: var(--subtitleFontSize);
+}
+
+.we.place {
+  font-style: italic;
+  font-size: var(--subTextFontSize);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.dark-text {
+  margin: 0;
+  font-size: var(--subTextFontSize);
+  font-weight: 400;
+  color: var(--darkBlue);
+}
+
+.light-text {
+  margin: 0;
+  font-size: var(--subTextFontSize);
+  font-weight: 400;
+  color: #fff;
+}
+
+.work-experience-title {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.work-experience {
+  color: var(--darkBlue);
+  padding: 0.5rem;
+  background: #87c3ff2d;
+  border-radius: 4px;
+
+  @media (min-width: 768px) {
+    background: none;
+  }
+
+  .work-experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+    .work-experience-details {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.skill-container {
+  display: flex;
+  justify-content: space-between;
+  color: var(--darkBlue);
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+
+  .profile-image {
+    margin: 2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 50%;
+    background: url("../../asset/me.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1/1;
+
+    @media (min-width: 768px) {
+      margin: 1rem;
+    }
+  }
+}
+
+.school-container {
+  .school-details {
+    padding-left: 0.5rem;
+  }
+}
+
+.language-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  .language-title {
+    color: #fff;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .language-colorbox {
+    display: flex;
+    flex-direction: column;
+    background: var(--lightBlue);
+
+    .language-knowledge {
+      background: #fff;
+      height: 0.7rem;
+      transition: all 1000ms ease-in;
+    }
+
+    .language-motivation {
+      background: var(--darkBlue);
+      height: 0.7rem;
+      transition: all 1000ms ease-in;
+    }
+  }
+}
+
+.languages-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .languages-hint {
+    display: flex;
+    justify-content: center;
+
+    .languages-knowledge {
+      margin: 0 1rem 0 0;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .languages-motivation {
+      margin: 0 0 0 1rem;
+      color: var(--darkBlue);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+}
+
+.interests-container {
+  padding-left: 0.5rem;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  .contact-type-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  .contact-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  .contact-link.pointer {
+    cursor: pointer;
+  }
+}
+
+.find-me-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.5rem;
+}
