@@ -1,5 +1,11 @@
-import { ReactNode, useEffect, useState, MouseEvent } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "./elements.scss";
+
+import phoneIcon from "../../asset/phone-white.png";
+import mailIcon from "../../asset/mail-white.png";
+import linkedinIcon from "../../asset/linkedin-white.png";
+import githubIcon from "../../asset/github-white.png";
+import mapsIcon from "../../asset/maps-white.png";
 
 type NameProps = {
   first: string;
@@ -7,20 +13,6 @@ type NameProps = {
   last: string;
   role: string;
 };
-
-export function Name(props: NameProps) {
-  const { first, middle, last, role } = props;
-  return (
-    <div className="name">
-      <div className="name-container">
-        <h1 className="text first">{first}</h1>
-        <h1 className="text">{middle}</h1>
-        <h1 className="text">{last}</h1>
-      </div>
-      <h3 className="role">{role}</h3>
-    </div>
-  );
-}
 
 function MainTitle({ title }: MainContainerProps) {
   return <h2 className="main-title">{title}</h2>;
@@ -68,7 +60,7 @@ function MainDescription(props: MainDescriptionProps) {
 
 function MainContainer(props: MainContainerProps) {
   return (
-    <div className="main-container">
+    <div className={`main-container`}>
       <MainTitle title={props.title}></MainTitle>
       {props.children}
     </div>
@@ -78,14 +70,6 @@ function MainContainer(props: MainContainerProps) {
 type AboutMeProps = {
   children: string;
 };
-
-export function AboutMe(props: AboutMeProps) {
-  return (
-    <MainContainer title="About Me">
-      <MainDescription description={props.children}></MainDescription>
-    </MainContainer>
-  );
-}
 
 type WorkType = {
   interval: string;
@@ -118,18 +102,6 @@ type WorkExperienceProps = {
   experiences: WorkType[];
 };
 
-export function WorkExperience(props: WorkExperienceProps) {
-  return (
-    <MainContainer title="Work Experience">
-      {props.experiences.map((experience) => {
-        return (
-          <WorkExperienceContainer key={experience.interval} {...experience} />
-        );
-      })}
-    </MainContainer>
-  );
-}
-
 type SkillsProps = {
   hard: string[];
   soft: string[];
@@ -146,22 +118,6 @@ function SkillList(props: SkillsType) {
       })}
     </div>
   );
-}
-
-export function Skills(props: SkillsProps) {
-  const { hard, soft } = props;
-  return (
-    <MainContainer title="Skills">
-      <div className="skill-container">
-        <SkillList skills={hard} />
-        <SkillList skills={soft} />
-      </div>
-    </MainContainer>
-  );
-}
-
-export function ProfileImage() {
-  return <div className="profile-image" />;
 }
 
 type SchoolProps = {
@@ -188,27 +144,6 @@ type EducationType = {
   courses: string[];
 };
 
-export function Education(props: EducationType) {
-  return (
-    <MainContainer title="Education">
-      {props.school.map((schl) => {
-        return <SchoolElement key={schl.degree} {...schl} />;
-      })}
-
-      <div className="school-container">
-        <DarkText text="Courses" />
-        {props.courses.map((course) => {
-          return (
-            <div className="school-details" key={course}>
-              <LightText text={course} />
-            </div>
-          );
-        })}
-      </div>
-    </MainContainer>
-  );
-}
-
 type LanguageProps = {
   language: string;
   knowledge: number;
@@ -218,9 +153,6 @@ type LanguageProps = {
 function Language(props: LanguageProps) {
   const [knowledgeWidth, setKnowledgeWidth] = useState(0);
   const [motivationWidth, setMotivationWidth] = useState(0);
-
-  //const knowledgeWidth = `${props.knowledge}%`;
-  //const motivationWidth = `${props.motivation}%`;
 
   useEffect(() => {
     setKnowledgeWidth(props.knowledge);
@@ -250,6 +182,133 @@ type LanguagesType = {
   motivation: number;
 };
 
+type InterestsProps = {
+  interests: string[];
+};
+
+type FindMeProps = {
+  mail: string;
+  phone: string;
+  location: string;
+  linkedin: string;
+  github: string;
+};
+
+type ContactType = {
+  image?: string;
+  name: string;
+  link?: string;
+  type: "link" | "mail" | "none";
+};
+
+function ContactItem(props: ContactType) {
+  const { image, name, link, type } = props;
+
+  const backgroundStyle = {
+    background: `url(${image})`,
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  };
+
+  return (
+    <div className="contact-container">
+      <div className="contact-type-icon" style={backgroundStyle} />
+      {type === "none" && <div className="contact-link pointer">{name}</div>}
+      {type === "mail" && (
+        <a className="contact-link pointer" href={`mailto:${link}`}>
+          {name}
+        </a>
+      )}
+      {type === "link" && (
+        <a
+          className="contact-link pointer"
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {name}
+        </a>
+      )}
+    </div>
+  );
+}
+
+export function Name(props: NameProps) {
+  const { first, middle, last, role } = props;
+  return (
+    <div className="name">
+      <div className="name-container">
+        <h1 className="text first">{first}</h1>
+        <h1 className="text">{middle}</h1>
+        <h1 className="text">{last}</h1>
+      </div>
+      <h3 className="role">{role}</h3>
+    </div>
+  );
+}
+
+export function AboutMe(props: AboutMeProps) {
+  return (
+    <MainContainer title="About Me">
+      <MainDescription description={props.children}></MainDescription>
+    </MainContainer>
+  );
+}
+
+export function WorkExperience(props: WorkExperienceProps) {
+  return (
+    <MainContainer title="Work Experience">
+      {props.experiences.map((experience) => {
+        return (
+          <WorkExperienceContainer key={experience.interval} {...experience} />
+        );
+      })}
+    </MainContainer>
+  );
+}
+
+export function Skills(props: SkillsProps) {
+  const { hard, soft } = props;
+  return (
+    <MainContainer title="Skills">
+      <div className="skill-container">
+        <SkillList skills={hard} />
+        <SkillList skills={soft} />
+      </div>
+    </MainContainer>
+  );
+}
+
+export function ProfileImage() {
+  return (
+    <div className="profile-image-container">
+      <div className="profile-image" />
+    </div>
+  );
+}
+
+export function Education(props: EducationType) {
+  return (
+    <MainContainer title="Education">
+      {props.school.map((schl) => {
+        return <SchoolElement key={schl.degree} {...schl} />;
+      })}
+
+      <div className="school-container">
+        <DarkText text="Courses" />
+        {props.courses.map((course) => {
+          return (
+            <div className="school-details" key={course}>
+              <LightText text={course} />
+            </div>
+          );
+        })}
+      </div>
+    </MainContainer>
+  );
+}
+
 export function Languages(props: { languages: LanguagesType[] }) {
   return (
     <MainContainer title="Language">
@@ -273,10 +332,6 @@ export function Languages(props: { languages: LanguagesType[] }) {
   );
 }
 
-type InterestsProps = {
-  interests: string[];
-};
-
 export function Interest(props: InterestsProps) {
   return (
     <MainContainer title="Interests">
@@ -289,52 +344,26 @@ export function Interest(props: InterestsProps) {
   );
 }
 
-type FindMeProps = {
-  mail: string;
-  phone: string;
-  location: string;
-  linkedin: string;
-  github: string;
-};
-
-type ContactType = {
-  image?: string;
-  name: string;
-  link?: string;
-  type: "link" | "mail" | "none";
-};
-
-function ContactItem(props: ContactType) {
-  const { image, name, link, type } = props;
-
-  return (
-    <div className="contact-container">
-      <div className="contact-type-icon" />
-      {type === "none" && <div className="contact-">{name}</div>}
-      {type === "mail" && (
-        <a className="contact-" href={`mailto:${link}`}>
-          {name}
-        </a>
-      )}
-      {type === "link" && (
-        <a className="contact-" href={link} target="_blank" rel="noreferrer">
-          {name}
-        </a>
-      )}
-    </div>
-  );
-}
-
 export function FindMe(props: FindMeProps) {
   const { phone, mail, location, linkedin, github } = props;
   return (
     <MainContainer title="Find Me">
       <div className="find-me-container">
-        <ContactItem name={phone} type={"none"} />
-        <ContactItem name={mail} type={"mail"} link={mail} />
-        <ContactItem name="Ákos Ferenc Kalamár" type={"link"} link={linkedin} />
-        <ContactItem name="afk-hun" type={"link"} link={github} />
-        <ContactItem name={location} type={"none"} />
+        <ContactItem name={phone} type={"none"} image={phoneIcon} />
+        <ContactItem name={mail} type={"mail"} link={mail} image={mailIcon} />
+        <ContactItem
+          name="Ákos Ferenc Kalamár"
+          type={"link"}
+          link={linkedin}
+          image={linkedinIcon}
+        />
+        <ContactItem
+          name="afk-hun"
+          type={"link"}
+          link={github}
+          image={githubIcon}
+        />
+        <ContactItem name={location} type={"none"} image={mapsIcon} />
       </div>
     </MainContainer>
   );

@@ -35,13 +35,20 @@ export default function Landing() {
         <ChuckNorris />
       </section>
       <section className="sub-container">
-        <h1
+        <div
+          className="resume-frame"
           onClick={() => {
             return navigate("/resume");
           }}
         >
-          Resume
-        </h1>
+          If you are interested in who is this guy just check it here 😉
+          <GitHubLink
+            mode="dark"
+            link={
+              "https://github.com/afk-hun/reference/tree/develop/src/components/resume"
+            }
+          />
+        </div>
       </section>
     </div>
   );
