@@ -9,6 +9,7 @@ import Characters from "../components/rick-and-morty/Characters/Characters";
 import Episodes from "../components/rick-and-morty/Episodes/Episodes";
 import Locations from "../components/rick-and-morty/Locations/Locations";
 import Landing from "../components/landing/Landing";
+import Resume from "./Resume";
 
 const mainRouterConfig = [
   {
@@ -25,6 +26,7 @@ const mainRouterConfig = [
           { path: "episodes", element: <Episodes /> },
         ],
       },
+      { path: "resume", element: <Resume /> },
     ],
   },
 ] as RouteObject[];

@@ -35,7 +35,13 @@ export default function Landing() {
         <ChuckNorris />
       </section>
       <section className="sub-container">
-        <div className="link">Resume</div>
+        <h1
+          onClick={() => {
+            return navigate("/resume");
+          }}
+        >
+          Resume
+        </h1>
       </section>
     </div>
   );
