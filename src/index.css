@@ -1,12 +1,12 @@
 html {
-  background: url("./asset/blueprint.png");
+  /* background: url("./asset/blueprint.png"); */
+  background: whitesmoke;
   background-repeat: repeat;
   background-size: 200px;
   color: white;
 }
 
 body {
-  border: 2px solid white;
   margin: 0;
   width: auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

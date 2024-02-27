@@ -1,5 +1,6 @@
 .container {
-  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-sizing: border-box;
   background: whitesmoke;
   color: black;
@@ -8,10 +9,10 @@
   align-items: center;
   width: 100%;
 
-  .sub-container {
+  .section-container {
     display: flex;
     width: 100%;
-    padding: 1rem;
+    margin: 1rem;
     .link {
       padding: 1rem;
       text-decoration: none;
