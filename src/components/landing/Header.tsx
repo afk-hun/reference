@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../asset/AFK_logo.png";
 
@@ -26,6 +26,7 @@ const Logo = styled.div`
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     height: 86px;
@@ -43,6 +44,7 @@ const Title = styled.h1`
   width: 100%;
   text-align: right;
   align-self: center;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     font-size: 3rem;
@@ -53,11 +55,22 @@ const Title = styled.h1`
 `;
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <>
       <HeaderContainer>
-        <Logo />
-        <Title>The Reference page</Title>
+        <Logo
+          onClick={() => {
+            return navigate("/");
+          }}
+        />
+        <Title
+          onClick={() => {
+            return navigate("/");
+          }}
+        >
+          The Reference page
+        </Title>
       </HeaderContainer>
       <div>
         <Outlet />
