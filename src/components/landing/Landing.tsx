@@ -7,7 +7,7 @@ export default function Landing() {
   const navigate = useNavigate();
   return (
     <div className="container">
-      <section className="sub-container">
+      <section className="section-container">
         <div
           className="link rm"
           onClick={() => {
@@ -31,10 +31,10 @@ export default function Landing() {
           </div>
         </div>
       </section>
-      <section className="sub-container">
+      <section className="section-container">
         <ChuckNorris />
       </section>
-      <section className="sub-container">
+      <section className="section-container">
         <div
           className="resume-frame"
           onClick={() => {

@@ -15,13 +15,17 @@ const NavDiv = styled.div`
 const NavLink = styled(Link)`
   display: flex;
   justify-content: center;
-  width: 7rem;
+  width: 4rem;
   text-decoration: none;
   color: #fff4bd;
   border-radius: 4px;
   border: #fff4bd 2px solid;
   padding: 1rem;
   background-color: #887bb0;
+
+  @media (min-width: 768px) {
+    width: 7rem;
+  }
 
   &:hover {
     background-color: #fff4bd;

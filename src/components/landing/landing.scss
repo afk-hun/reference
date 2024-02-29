@@ -1,5 +1,6 @@
 .container {
-  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-sizing: border-box;
   background: whitesmoke;
   color: black;
@@ -8,10 +9,10 @@
   align-items: center;
   width: 100%;
 
-  .sub-container {
+  .section-container {
     display: flex;
     width: 100%;
-    padding: 1rem;
+    margin: 1rem;
     .link {
       padding: 1rem;
       text-decoration: none;
@@ -69,13 +70,15 @@
       align-items: center;
       height: 100px;
       width: 100%;
-      background: linear-gradient(45deg, #3f87a6, #ebf8e1, #f69d3c);
+      background: linear-gradient(30deg, #3f87a6, #d9f4c5, #f69d3c);
       background-position: right;
       background-size: contain;
       background-repeat: no-repeat;
       border-radius: 4px;
       position: relative;
       padding: 1rem;
+      text-align: center;
+      color: #507e8d;
     }
   }
 }
