@@ -109,6 +109,7 @@ export const TableHeaderTitle = styled.h1`
   inline-size: 170px;
   overflow-wrap: break-word;
   font-weight: 600;
+  font-size: 1rem;
 `;
 
 export const TableHeaderSubtitle = styled.h1`
@@ -118,11 +119,13 @@ export const TableHeaderSubtitle = styled.h1`
   inline-size: 170px;
   overflow-wrap: break-word;
   font-weight: 300;
+  font-size: 1rem;
 `;
 
 export const TableHeaderEmpty = styled.h1`
   min-width: 80px;
   margin: 0;
+  font-size: 1rem;
 `;
 export const More = styled.a`
   margin: 0;
@@ -135,6 +138,7 @@ export const More = styled.a`
   color: #fff4bd;
   background: #887bb0;
   border-radius: 4px;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -185,6 +189,7 @@ export const ItemName = styled.h1`
   overflow-wrap: break-word;
   flex-grow: 1;
   margin: 0;
+  font-size: 1rem;
 
   @media (min-width: 768px) {
     //inline-size: 200px;

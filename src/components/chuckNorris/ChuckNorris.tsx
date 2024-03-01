@@ -51,12 +51,6 @@ const ChuckNorris = () => {
           </p>
         )}
       </div>
-      <GitHubLink
-        mode="light"
-        link={
-          "https://github.com/afk-hun/reference/tree/develop/src/components/chuckNorris"
-        }
-      />
       <div className="norris" ref={kickButtonRef} />
       <div className="kick" onClick={kickHandler}>
         Kick

@@ -67,6 +67,7 @@ const TableHeaderHashtag = styled.h1`
   margin: 0;
   font-weight: 600;
   min-width: 80px;
+  font-size: 1rem;
 `;
 
 type SeasonType = {

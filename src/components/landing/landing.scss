@@ -1,54 +1,43 @@
-.container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+* {
   box-sizing: border-box;
+}
+
+.container {
   background: whitesmoke;
   color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  padding: 0;
+  margin: 0;
 
   .section-container {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    margin: 1rem;
-    border-radius: 4px;
-    box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.808);
 
-    .link {
-      padding: 1rem;
-      text-decoration: none;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      max-width: 800px;
     }
-    .rm {
+
+    .rick-and-morty {
       display: flex;
-      position: relative;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       height: 200px;
       width: 100%;
-      border-radius: 4px;
-      background: url("../../asset/rick-and-morty-wallpaper.jpeg");
-      background-clip: border-box;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position-x: right;
-      background-position-y: 80%;
+
       cursor: pointer;
 
       @media (min-width: 768px) {
-        flex-direction: row;
         height: 300px;
-        background-position-x: right;
-        background-position-y: 80%;
-      }
-
-      .rm-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
       }
 
       h1 {
+        z-index: 1;
+        display: flex;
         color: white;
         font-size: 2rem;
         font-weight: 200;
@@ -56,6 +45,10 @@
       }
 
       h3 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        z-index: 1;
+        display: flex;
         color: white;
         font-size: 1rem;
         font-weight: 200;
@@ -63,8 +56,66 @@
       }
     }
 
-    @media (min-width: 768px) {
-      max-width: 800px;
+    .rick-and-morty-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: url("../../asset/rick-and-morty-wallpaper.jpeg");
+      background-clip: border-box;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: right;
+      background-position-y: 80%;
+      filter: brightness(70%);
+
+      @media (min-width: 768px) {
+        filter: none;
+        background-position-x: right;
+        background-position-y: 80%;
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+    }
+
+    .fake-store {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: 768px) {
+        height: 300px;
+      }
+
+      .fake-store-text {
+        font-size: 2rem;
+        font-weight: 300;
+        color: #053a65;
+        z-index: 1;
+
+        // TODO it's not working
+        &:hover + .fake-store-bg {
+          filter: brightness(90%);
+        }
+      }
+    }
+    .fake-store-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: url("../../asset/fake_shop_bg.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      @media (min-width: 768px) {
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
     }
 
     .resume-frame {
@@ -95,8 +146,7 @@
         max-width: 180px;
         margin: 0;
         padding: 0;
-        font-size: 1rem;
-        font-weight: 500;
+        font-size: 1.2rem;
         padding-top: 2rem;
         padding-bottom: 1.5rem;
 

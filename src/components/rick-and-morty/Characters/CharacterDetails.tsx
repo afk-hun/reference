@@ -65,6 +65,7 @@ const EpisodeName = styled.h1`
   margin: 0;
   flex-wrap: wrap;
   width: 100%;
+  font-size: 1rem;
 `;
 const EpisodeOnAirDate = styled.p`
   display: flex;

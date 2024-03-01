@@ -4,7 +4,7 @@ import { MouseEvent } from "react";
 import githubIconWhite from "../../asset/github-mark-white.png";
 import githubIconDark from "../../asset/github-mark.png";
 
-type Mode = "dark" | "light";
+export type Mode = "dark" | "light";
 
 const Frame = styled.div<{ $mode?: Mode }>`
   box-sizing: content-box;

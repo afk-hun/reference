@@ -172,8 +172,9 @@
 }
 
 .school-container {
+  padding-left: 1rem;
   .school-details {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
   }
 }
 
@@ -231,12 +232,13 @@
 }
 
 .interests-container {
-  padding-left: 0.5rem;
+  padding-left: 2rem;
 }
 
 .contact-container {
   display: flex;
   align-items: center;
+  padding-left: 1rem;
   gap: 0.8rem;
 
   .contact-type-icon {

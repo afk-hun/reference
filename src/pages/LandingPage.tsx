@@ -10,6 +10,7 @@ import Episodes from "../components/rick-and-morty/Episodes/Episodes";
 import Locations from "../components/rick-and-morty/Locations/Locations";
 import Landing from "../components/landing/Landing";
 import Resume from "./Resume";
+import FakeStorePage from "./FakeStorePage";
 
 const mainRouterConfig = [
   {
@@ -27,6 +28,7 @@ const mainRouterConfig = [
         ],
       },
       { path: "resume", element: <Resume /> },
+      { path: "fake-store", element: <FakeStorePage />, children: [{}] },
     ],
   },
 ] as RouteObject[];
