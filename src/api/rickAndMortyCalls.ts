@@ -53,7 +53,7 @@ export async function getSeasons(callback: (data: Promise<any>) => void) {
       const data = await getEpisodeBySeason(i);
       callback(data);
       i++;
-    } catch {
+    } catch (error) {
       isError = true;
     }
   }
