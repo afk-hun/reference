@@ -41,7 +41,11 @@ export default function Landing() {
             return navigate("/resume");
           }}
         >
-          If you are interested in who is this guy just check it here 😉
+          <h1>
+            If you like my reference page and you are interested in who am I
+            please check my CV here and contact me.
+          </h1>
+
           <GitHubLink
             mode="dark"
             link={
