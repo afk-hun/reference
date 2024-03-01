@@ -13,6 +13,9 @@
     display: flex;
     width: 100%;
     margin: 1rem;
+    border-radius: 4px;
+    box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.808);
+
     .link {
       padding: 1rem;
       text-decoration: none;
@@ -66,19 +69,45 @@
 
     .resume-frame {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      height: 100px;
+      max-height: 400px;
+      min-height: 100px;
       width: 100%;
-      background: linear-gradient(30deg, #3f87a6, #d9f4c5, #f69d3c);
+      background: url("../../asset/cv_bg_1.png");
+      background-color: #f0f3ec;
       background-position: right;
       background-size: contain;
       background-repeat: no-repeat;
       border-radius: 4px;
       position: relative;
       padding: 1rem;
-      text-align: center;
+      padding-left: 1.5rem;
       color: #507e8d;
+
+      @media (min-width: 768px) {
+        padding-left: 4rem;
+        background-size: contain;
+      }
+
+      h1 {
+        text-align: left;
+        max-width: 180px;
+        margin: 0;
+        padding: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        padding-top: 2rem;
+        padding-bottom: 1.5rem;
+
+        @media (min-width: 400px) {
+          max-width: 300px;
+        }
+
+        @media (min-width: 768px) {
+          max-width: 500px;
+        }
+      }
     }
   }
 }

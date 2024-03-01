@@ -59,7 +59,7 @@ const EpisodeCard = (props: EpisodeType) => {
               residentClickHandler();
             }}
           >
-            Residents
+            Characters
           </More>
         </ListContainer>
       </ItemContainer>

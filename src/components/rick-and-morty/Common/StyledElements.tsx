@@ -126,7 +126,7 @@ export const TableHeaderEmpty = styled.h1`
 `;
 export const More = styled.a`
   margin: 0;
-  padding: 0;
+  padding: 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
