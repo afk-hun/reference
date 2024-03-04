@@ -7,10 +7,8 @@ export async function getAllUser() {
 export async function userLogin(user: string, password: string) {
   return axios
     .post("https://fakestoreapi.com/auth/login", {
-      body: JSON.stringify({
-        username: user,
-        password: password,
-      }),
+      username: user,
+      password: password,
     })
     .then((res) => res.data);
 }
