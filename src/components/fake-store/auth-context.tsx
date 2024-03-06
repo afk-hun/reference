@@ -44,7 +44,10 @@ export default function AuthContextProvider({
       setToken(token);
     },
     logout() {
-      localStorage.clear();
+      localStorage.setItem("user", "");
+      localStorage.setItem("token", "");
+      setUser("");
+      setToken("");
     },
   };
 

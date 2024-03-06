@@ -12,6 +12,8 @@ import Landing from "../components/landing/Landing";
 import Resume from "./Resume";
 import FakeStorePage from "./FakeStorePage";
 import { Login } from "../components/fake-store/Login";
+import { Register } from "../components/fake-store/Register";
+import { MarketPlace } from "../components/fake-store/MarketPlace";
 
 const mainRouterConfig = [
   {
@@ -36,6 +38,15 @@ const mainRouterConfig = [
           {
             path: "login",
             element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+          {
+            index: true,
+            //path: "marketplace",
+            element: <MarketPlace />,
           },
         ],
       },
