@@ -1,9 +1,7 @@
 html {
-  /* background: url("./asset/blueprint.png"); */
   background: whitesmoke;
-  background-repeat: repeat;
-  background-size: 200px;
-  color: white;
+  margin: 0;
+  width: auto;
 }
 
 body {

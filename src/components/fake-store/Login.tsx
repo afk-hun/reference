@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuthContext } from "./auth-context";
 import { userLogin } from "../../api/fakeStoreCalls";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserSelector } from "./store/hooks";
+import { useStoreSelector } from "./store/hooks";
 import { LoginForm } from "./LoginForm";
 import { DropDownUsers } from "./mock/DropDownUsers";
 
@@ -15,7 +15,7 @@ export function Login() {
   const navigate = useNavigate();
   const authCtx = useAuthContext();
 
-  const userSelector = useUserSelector((state) => state.user.items);
+  const userSelector = useStoreSelector((state) => state.user.users);
 
   const [usernameState, setUsernameState] = useState("");
   const [passwordState, setPasswordState] = useState("");

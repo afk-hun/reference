@@ -17,30 +17,31 @@ export function Navigation() {
     <nav className="navbar navbar-expand-sm bg-body-tertiary ps-lg-5 pe-lg-5">
       <div className="container-fluid">
         <h1 className="navbar-brand ">Fake Store</h1>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#search"
-          aria-controls="search"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i className="bi bi-search"></i>
-          {/* <span className="navbar-toggler-icon"></span> */}
-        </button>
+        <div>
+          <button
+            className="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#search"
+            aria-controls="search"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i className="bi bi-search"></i>
+          </button>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          <button
+            className="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div
           className="collapse navbar-collapse justify-content-end"
           id="search"

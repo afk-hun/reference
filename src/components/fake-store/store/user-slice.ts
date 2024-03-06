@@ -1,41 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAllUser } from "../../../api/fakeStoreCalls";
-
-export type User = {
-  id: number;
-  email: string;
-  username: string;
-  password: string;
-  name: {
-    firstname: string;
-    lastname: string;
-  };
-  address: {
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
-    geolocation: {
-      lat: string;
-      long: string;
-    };
-  };
-  phone: string;
-};
+import { UserType } from "../utils/types";
 
 type UserState = {
-  items: User[];
+  users: UserType[];
 };
 
 const initialState: UserState = {
-  items: [],
+  users: [],
 };
 
 export const fetchUsers = createAsyncThunk("user/fetchData", async () => {
   try {
     const response = await getAllUser();
 
-    return response as User[];
+    return response as UserType[];
   } catch {}
 });
 
@@ -46,7 +25,7 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.items = action.payload!;
+        state.users = action.payload!;
       })
       .addDefaultCase((state, action) => {});
   },

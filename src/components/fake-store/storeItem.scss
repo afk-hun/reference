@@ -1,0 +1,33 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+html {
+  background: whitesmoke;
+  margin: 0;
+  width: auto;
+  padding: 0;
+}
+
+body {
+  background: whitesmoke;
+  margin: 0;
+  width: auto;
+  padding: 0;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+}
+
+@include media-breakpoint-up(md) {
+  .item-crp {
+    min-width: 140px;
+  }
+}
+
+// @include media-breakpoint-up(lg) {
+//   .product-image {
+//     width: 150px;
+//     height: 150px;
+//   }
+// }
