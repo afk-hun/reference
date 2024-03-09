@@ -16,7 +16,14 @@ export function Navigation() {
   return (
     <nav className="navbar navbar-expand-sm bg-body-tertiary ps-lg-5 pe-lg-5">
       <div className="container-fluid">
-        <h1 className="navbar-brand ">Fake Store</h1>
+        <h1
+          className="navbar-brand p-2 m-0"
+          onClick={() => {
+            navigate("./");
+          }}
+        >
+          Fake Store
+        </h1>
         <div>
           <button
             className="navbar-toggler border-0"

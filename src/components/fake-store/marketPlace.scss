@@ -1,0 +1,11 @@
+@import "./base.scss";
+.custom-main {
+  width: 100%;
+}
+
+@include media-breakpoint-up(lg) {
+  .custom-main {
+    width: 80%;
+    margin: auto;
+  }
+}

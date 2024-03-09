@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useStoreSelector } from "../store/hooks";
 import { UserType } from "../utils/types";
+import { makeFirstLetterUpperCase } from "../utils/functions";
 
 type DropDownUsersProps = {
   mockUserHandler: (id: number) => void;
@@ -10,10 +11,6 @@ export function DropDownUsers({ mockUserHandler }: DropDownUsersProps) {
   const userSelector = useStoreSelector((state) => state.user.users);
 
   const [activeMock, setActiveMock] = useState<UserType>();
-
-  function makeFirstLetterUpperCase(text: string) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  }
 
   return (
     <div className="dropdown">

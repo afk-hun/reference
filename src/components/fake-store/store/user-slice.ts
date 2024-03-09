@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getAllUser } from "../../../api/fakeStoreCalls";
 import { UserType } from "../utils/types";
 

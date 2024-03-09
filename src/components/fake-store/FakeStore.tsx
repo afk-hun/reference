@@ -3,7 +3,7 @@ import { Navigation } from "./Navigation";
 import { useEffect } from "react";
 import { useStoreDispatch } from "./store/hooks";
 import { fetchUsers } from "./store/user-slice";
-import { fetchItems } from "./store/item-slice";
+import { fetchCategories, fetchItems } from "./store/item-slice";
 
 export function FakeStore() {
   const userDispatch = useStoreDispatch();
@@ -11,6 +11,7 @@ export function FakeStore() {
   useEffect(() => {
     userDispatch(fetchUsers());
     userDispatch(fetchItems());
+    userDispatch(fetchCategories());
   }, [userDispatch]);
 
   return (
