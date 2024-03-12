@@ -3,18 +3,28 @@ import { StoreItemType } from "./utils/types";
 import "./storeItem.scss";
 import { StarRating } from "./StarRating";
 import { splitText } from "./utils/functions";
+import { useState } from "react";
 
 type StoreItemProps = StoreItemType;
 
 export function StoreItem(props: StoreItemProps) {
   const { id, title, price, description, category, image, rating } = props;
   const split = splitText(description);
+
+  const [isExpanded, setIsExpand] = useState<boolean>(false);
   return (
     <div className="d-flex flex-column border rounded p-3 gap-3">
       <h1>{title}</h1>
       <div className="item-info d-flex flex-column flex-md-row">
         <div className="d-flex flex-column align-items-center flex-sm-row gap-3">
-          <div className="p-2 bg-white rounded border">
+          <div
+            className={`
+              p-2 
+              bg-white 
+              rounded border 
+              align-self-sm-start
+            `}
+          >
             <div
               className="product-image"
               style={{ backgroundImage: `url(${image})` }}
@@ -30,14 +40,20 @@ export function StoreItem(props: StoreItemProps) {
                 <span className="collapse" id={`viewDetails${id}`}>
                   {split[1]}
                 </span>
+                {isExpanded ? " " : "... "}
                 <a
+                  className="link-secondary"
                   data-bs-toggle="collapse"
                   aria-controls="collapse"
                   href={`#viewDetails${id}`}
                   data-target={`#viewDetails${id}`}
+                  onClick={() => {
+                    setIsExpand((prevState) => {
+                      return !prevState;
+                    });
+                  }}
                 >
-                  {" "}
-                  More...
+                  Show {isExpanded ? "less" : "more"}
                 </a>
               </p>
             )}
@@ -49,7 +65,7 @@ export function StoreItem(props: StoreItemProps) {
                 flex-column gap-4 align-items-center 
                 flex-sm-row justify-content-around 
                 flex-lg-column 
-                w-100`}
+                `}
             >
               <div
                 className={`

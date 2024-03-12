@@ -3,10 +3,11 @@ export function makeFirstLetterUpperCase(text: string) {
 }
 
 export function splitText(text: string) {
+  const characterNumber = 100;
   let splittedText: string[] = [];
-  if (text.length > 200) {
-    splittedText.push(text.slice(0, 200));
-    splittedText.push(text.slice(200));
+  if (text.length > characterNumber) {
+    splittedText.push(text.slice(0, characterNumber));
+    splittedText.push(text.slice(characterNumber));
   } else {
     splittedText.push(text);
   }
