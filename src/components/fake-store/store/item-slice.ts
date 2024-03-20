@@ -70,6 +70,7 @@ export const itemSlice = createSlice({
       }
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchItems.fulfilled, (state, action) => {
@@ -82,4 +83,3 @@ export const itemSlice = createSlice({
   },
 });
 export const { addFilter, removeFilter } = itemSlice.actions;
-//export default itemSlice.reducer;

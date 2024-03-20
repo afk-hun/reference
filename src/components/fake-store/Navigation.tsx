@@ -1,9 +1,12 @@
 import { MouseEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "./auth-context";
+import { useStoreSelector } from "./store/hooks";
+import { makeFirstLetterUpperCase } from "./utils/functions";
 
 export function Navigation() {
   const authCtx = useAuthContext();
+  const user = useStoreSelector((state) => state.user.currentUser);
 
   const navigate = useNavigate();
 
@@ -74,14 +77,14 @@ export function Navigation() {
             {authCtx.user !== "" && (
               <>
                 <li className="nav-item ">
-                  <a className="nav-link disabled" href="#/">
+                  <a className="btn btn-outline-secondary disabled" href="#/">
                     Cart
                   </a>
                 </li>
                 <li className="nav-item ">
-                  <a className="nav-link disabled" href="#/">
-                    User
-                  </a>
+                  <Link className="nav-link" to={`user/${user?.id}`}>
+                    {user && makeFirstLetterUpperCase(user.name.firstname)}
+                  </Link>
                 </li>
               </>
             )}

@@ -14,6 +14,7 @@ import FakeStorePage from "./FakeStorePage";
 import { Login } from "../components/fake-store/Login";
 import { Register } from "../components/fake-store/Register";
 import { MarketPlace } from "../components/fake-store/MarketPlace";
+import { User } from "../components/fake-store/User";
 
 const mainRouterConfig = [
   {
@@ -36,17 +37,22 @@ const mainRouterConfig = [
         element: <FakeStorePage />,
         children: [
           {
+            index: true,
+            element: <MarketPlace />,
+          },
+          {
             path: "login",
             element: <Login />,
           },
+
           {
             path: "register",
             element: <Register />,
           },
           {
-            index: true,
-            //path: "marketplace",
-            element: <MarketPlace />,
+            path: "user/:userId",
+            element: <User />,
+            //loader: "",
           },
         ],
       },

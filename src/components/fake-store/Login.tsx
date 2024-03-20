@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useAuthContext } from "./auth-context";
 import { userLogin } from "../../api/fakeStoreCalls";
 import { Link, useNavigate } from "react-router-dom";
-import { useStoreSelector } from "./store/hooks";
+import { useStoreDispatch, useStoreSelector } from "./store/hooks";
 import { LoginForm } from "./LoginForm";
 import { DropDownUsers } from "./mock/DropDownUsers";
+import { setActiveUser } from "./store/user-slice";
 
 type ResponseData = {
   token: string;
@@ -16,17 +17,23 @@ export function Login() {
   const authCtx = useAuthContext();
 
   const userSelector = useStoreSelector((state) => state.user.users);
+  const userDispatch = useStoreDispatch();
 
   const [usernameState, setUsernameState] = useState("");
   const [passwordState, setPasswordState] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function onsubmitHandler(name: string, password: string) {
+  async function onSubmitHandler(name: string, password: string) {
     setLoading(true);
     try {
       const response = await userLogin(name, password);
       authCtx.login(name, (response as ResponseData).token);
       setLoading(false);
+      userDispatch(
+        setActiveUser({
+          user: userSelector.find((user) => user.username === usernameState)!,
+        })
+      );
       navigate("../", { replace: true });
     } catch {}
   }
@@ -56,7 +63,7 @@ export function Login() {
         </div>
         <div className="container">
           <LoginForm
-            submitHandler={onsubmitHandler}
+            submitHandler={onSubmitHandler}
             username={usernameState}
             password={passwordState}
             loading={loading}

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UserType } from "../components/fake-store/utils/types";
 
 export async function getAllUser() {
   return axios.get("https://fakestoreapi.com/users").then((res) => res.data);
@@ -26,5 +27,11 @@ export async function getAllCategories() {
 export async function getUserCart(userId: number) {
   return axios
     .get("https://fakestoreapi.com/carts/" + userId)
+    .then((res) => res.data);
+}
+
+export async function updateUser(body: UserType) {
+  return axios
+    .put("https://fakestoreapi.com/users/" + body.id, body)
     .then((res) => res.data);
 }

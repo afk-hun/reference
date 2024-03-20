@@ -1,17 +1,25 @@
-export type UserType = {
-  id: number;
+export type AccountType = {
   email: string;
   username: string;
   password: string;
-  name: {
-    firstname: string;
-    lastname: string;
-  };
-  address: {
-    city: string;
-    street: string;
-    number: number;
-    zipcode: string;
+};
+
+export type NameType = {
+  firstname: string;
+  lastname: string;
+};
+
+export type AddressType = {
+  city: string;
+  street: string;
+  number: number | string;
+  zipcode: string;
+};
+
+export type UserType = AccountType & {
+  id: number;
+  name: NameType;
+  address: AddressType & {
     geolocation: {
       lat: string;
       long: string;
