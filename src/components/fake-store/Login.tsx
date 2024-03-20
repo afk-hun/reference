@@ -7,6 +7,7 @@ import { useStoreDispatch, useStoreSelector } from "./store/hooks";
 import { LoginForm } from "./LoginForm";
 import { DropDownUsers } from "./mock/DropDownUsers";
 import { setActiveUser } from "./store/user-slice";
+import { fetchUserCart } from "./store/cart-slice";
 
 type ResponseData = {
   token: string;
@@ -16,7 +17,8 @@ export function Login() {
   const navigate = useNavigate();
   const authCtx = useAuthContext();
 
-  const userSelector = useStoreSelector((state) => state.user.users);
+  const userSelector = useStoreSelector((state) => state.user);
+
   const userDispatch = useStoreDispatch();
 
   const [usernameState, setUsernameState] = useState("");
@@ -31,15 +33,18 @@ export function Login() {
       setLoading(false);
       userDispatch(
         setActiveUser({
-          user: userSelector.find((user) => user.username === usernameState)!,
+          user: userSelector.users.find(
+            (user) => user.username === usernameState
+          )!,
         })
       );
+      userDispatch(fetchUserCart(userSelector.currentUser!.id));
       navigate("../", { replace: true });
     } catch {}
   }
 
   function mockUserHandler(id: number) {
-    const user = userSelector.find((user) => user.id === id);
+    const user = userSelector.users.find((user) => user.id === id);
     setUsernameState(user?.username ?? "");
     setPasswordState(user?.password ?? "");
   }

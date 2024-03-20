@@ -15,6 +15,7 @@ import { Login } from "../components/fake-store/Login";
 import { Register } from "../components/fake-store/Register";
 import { MarketPlace } from "../components/fake-store/MarketPlace";
 import { User } from "../components/fake-store/User";
+import { Checkout } from "../components/fake-store/Checkout";
 
 const mainRouterConfig = [
   {
@@ -52,6 +53,11 @@ const mainRouterConfig = [
           {
             path: "user/:userId",
             element: <User />,
+            //loader: "",
+          },
+          {
+            path: "cart/:userId",
+            element: <Checkout />,
             //loader: "",
           },
         ],

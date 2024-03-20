@@ -4,10 +4,14 @@ import "./storeItem.scss";
 import { StarRating } from "./StarRating";
 import { splitText } from "./utils/functions";
 import { useState } from "react";
+import { useStoreDispatch } from "./store/hooks";
+import { addCart } from "./store/cart-slice";
 
 type StoreItemProps = StoreItemType;
 
 export function StoreItem(props: StoreItemProps) {
+  const cartDispatch = useStoreDispatch();
+
   const { id, title, price, description, category, image, rating } = props;
   const split = splitText(description);
 
@@ -84,7 +88,14 @@ export function StoreItem(props: StoreItemProps) {
                 <h3 style={{ margin: 0 }}>${price}</h3>
               </div>
 
-              <button className="btn btn-primary">Add to cart</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  cartDispatch(addCart({ id: id, quantity: 1 }));
+                }}
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

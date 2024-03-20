@@ -74,19 +74,20 @@ export function Navigation() {
           id="navbarNav"
         >
           <ul className="navbar-nav">
+            <li className="nav-item ">
+              <Link
+                className="btn btn-outline-secondary"
+                to={`cart/${user?.id}`}
+              >
+                Cart
+              </Link>
+            </li>
             {authCtx.user !== "" && (
-              <>
-                <li className="nav-item ">
-                  <a className="btn btn-outline-secondary disabled" href="#/">
-                    Cart
-                  </a>
-                </li>
-                <li className="nav-item ">
-                  <Link className="nav-link" to={`user/${user?.id}`}>
-                    {user && makeFirstLetterUpperCase(user.name.firstname)}
-                  </Link>
-                </li>
-              </>
+              <li className="nav-item ">
+                <Link className="nav-link" to={`user/${user?.id}`}>
+                  {user && makeFirstLetterUpperCase(user.name.firstname)}
+                </Link>
+              </li>
             )}
             {authCtx.user === "" && (
               <li className="nav-item">

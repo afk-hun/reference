@@ -1,3 +1,5 @@
+import { NumericLiteral } from "typescript";
+
 export type AccountType = {
   email: string;
   username: string;
@@ -39,4 +41,17 @@ export type StoreItemType = {
     rate: number;
     count: number;
   };
+};
+
+type ProductType = {
+  productId: number;
+  quantity: number;
+};
+
+export type CartType = {
+  id: number;
+  userId: number;
+  date: string;
+  products: ProductType[];
+  __v: number;
 };
